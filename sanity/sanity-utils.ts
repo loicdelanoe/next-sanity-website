@@ -14,6 +14,7 @@ export async function getProjects(): Promise<Project[]> {
             url,
             content
         }`,
+        {},
         {
             next: {
                 revalidate: 10
@@ -34,8 +35,9 @@ export async function getProject(slug: string): Promise<Project> {
             url,
             content
         }`,
+        {slug},
         {
-            slug, next: {
+            next: {
                 revalidate: 10
             }
         }
@@ -51,6 +53,7 @@ export async function getPages(): Promise<Page[]> {
             title,
             "slug": slug.current
         }`,
+        {},
         {
             next: {
                 revalidate: 10
@@ -69,8 +72,9 @@ export async function getPage(slug: string): Promise<Page> {
             "slug": slug.current,
             content
         }`,
+        {slug},
         {
-            slug, next: {
+            next: {
                 revalidate: 10
             }
         }
