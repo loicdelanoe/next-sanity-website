@@ -35,20 +35,18 @@ export async function getProject(slug: string): Promise<Project> {
 
 // @ts-ignore
 export async function getPages(): Promise<Page[]> {
-    const revalidate = 10;
     return createClient(clientConfig).fetch(
         groq`*[_type == "page"]{
             _id,
             _createdAt,
             title,
             "slug": slug.current
-        }`, {next: revalidate}
+        }`
     )
 }
 
 // @ts-ignore
 export async function getPage(slug: string): Promise<Page> {
-    const revalidate = 10;
     return createClient(clientConfig).fetch(
         groq`*[_type == "page" && slug.current == $slug][0]{
             _id,
@@ -57,6 +55,5 @@ export async function getPage(slug: string): Promise<Page> {
             "slug": slug.current,
             content
         }`,
-        {slug, next: revalidate}
     )
 }
