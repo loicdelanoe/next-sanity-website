@@ -15,7 +15,8 @@ export async function getProjects(): Promise<Project[]> {
             "image": image.asset->url,
             url,
             content
-        }`
+        }`,
+        {cache: "force-cache"}
     )
 }
 
@@ -31,7 +32,7 @@ export async function getProject(slug: string): Promise<Project> {
             url,
             content
         }`,
-        {slug}
+        {slug, cache: "force-cache"}
     )
 }
 
@@ -43,7 +44,9 @@ export async function getPages(): Promise<Page[]> {
             _createdAt,
             title,
             "slug": slug.current
-        }`
+        }`,
+        {cache: "force-cache"}
+
     )
 }
 
@@ -57,6 +60,6 @@ export async function getPage(slug: string): Promise<Page> {
             "slug": slug.current,
             content
         }`,
-        {slug}
+        {slug, cache: "force-cache"}
     )
 }
