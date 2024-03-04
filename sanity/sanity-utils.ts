@@ -2,6 +2,8 @@ import {createClient, groq} from "next-sanity";
 import {Project} from "@/types/Project";
 import clientConfig from "@/sanity/config/client-config";
 
+const dynamic = 'force-dynamic';
+
 // @ts-ignore
 export async function getProjects(): Promise<Project[]> {
     return createClient(clientConfig).fetch(
@@ -56,6 +58,5 @@ export async function getPage(slug: string): Promise<Page> {
             content
         }`,
         {slug}
-
     )
 }
