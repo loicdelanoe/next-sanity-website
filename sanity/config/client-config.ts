@@ -1,8 +1,8 @@
 const config = {
-    projectId: process.env.SANITY_API_PROJECT_ID,
-    dataset: process.env.SANITY_API_DATASET,
-    useCDN: false,
-    apiVersion: '2024-03-04',
+    projectId: 'qyql4ize',
+    dataset: 'production',
+    useCdn: false,
+    apiVersion: '2023-05-03',
 }
 
 export default config;

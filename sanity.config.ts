@@ -6,7 +6,7 @@ const config = defineConfig({
     projectId: 'qyql4ize',
     dataset: 'production',
     title: 'My Personal Website',
-    apiVersion: '2024-03-04',
+    apiVersion: '2023-05-03',
     basePath: '/admin',
     plugins: [structureTool()],
     schema: {types: schemas},

@@ -2,8 +2,6 @@ import {createClient, groq} from "next-sanity";
 import {Project} from "@/types/Project";
 import clientConfig from "@/sanity/config/client-config";
 
-const dynamic = 'force-dynamic';
-
 // @ts-ignore
 export async function getProjects(): Promise<Project[]> {
     return createClient(clientConfig).fetch(
@@ -16,7 +14,11 @@ export async function getProjects(): Promise<Project[]> {
             url,
             content
         }`,
-        {cache: "force-cache"}
+        {
+            next: {
+                revalidate: 10
+            }
+        }
     )
 }
 
@@ -32,7 +34,11 @@ export async function getProject(slug: string): Promise<Project> {
             url,
             content
         }`,
-        {slug, cache: "force-cache"}
+        {
+            slug, next: {
+                revalidate: 10
+            }
+        }
     )
 }
 
@@ -45,8 +51,11 @@ export async function getPages(): Promise<Page[]> {
             title,
             "slug": slug.current
         }`,
-        {cache: "force-cache"}
-
+        {
+            next: {
+                revalidate: 10
+            }
+        }
     )
 }
 
@@ -60,6 +69,10 @@ export async function getPage(slug: string): Promise<Page> {
             "slug": slug.current,
             content
         }`,
-        {slug, cache: "force-cache"}
+        {
+            slug, next: {
+                revalidate: 10
+            }
+        }
     )
 }
