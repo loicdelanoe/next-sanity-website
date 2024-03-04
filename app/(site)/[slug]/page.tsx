@@ -1,6 +1,8 @@
 import {getPage} from "@/sanity/sanity-utils";
 import {PortableText} from "@portabletext/react";
 
+const dynamic = 'force-dynamic';
+
 type Props = {
     params: { slug: string },
 }
