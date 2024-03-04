@@ -33,6 +33,7 @@ export async function getProject(slug: string): Promise<Project> {
     )
 }
 
+// @ts-ignore
 export async function getPages(): Promise<Page[]> {
     return createClient(clientConfig).fetch(
         groq`*[_type == "page"]{
@@ -44,6 +45,7 @@ export async function getPages(): Promise<Page[]> {
     )
 }
 
+// @ts-ignore
 export async function getPage(slug: string): Promise<Page> {
     return createClient(clientConfig).fetch(
         groq`*[_type == "page" && slug.current == $slug][0]{
