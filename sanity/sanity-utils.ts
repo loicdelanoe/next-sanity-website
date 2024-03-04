@@ -16,7 +16,7 @@ export async function getProjects(): Promise<Project[]> {
         }`,
         {},
         {
-            cache: "force-cache"
+            cache: "no-store"
         }
     )
 }
@@ -35,7 +35,7 @@ export async function getProject(slug: string): Promise<Project> {
         }`,
         {slug},
         {
-            cache: "force-cache"
+            cache: "no-store"
         }
     )
 }
@@ -51,7 +51,7 @@ export async function getPages(): Promise<Page[]> {
         }`,
         {},
         {
-            cache: "force-cache"
+            cache: "no-store"
         }
     )
 }
@@ -68,7 +68,7 @@ export async function getPage(slug: string): Promise<Page> {
         }`,
         {slug},
         {
-            cache: "force-cache"
+            cache: "no-store"
         }
     )
 }
